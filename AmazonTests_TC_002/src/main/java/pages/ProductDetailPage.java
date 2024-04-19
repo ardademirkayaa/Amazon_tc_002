@@ -11,12 +11,12 @@ public class ProductDetailPage extends BasePage{
     By addToCartButtonLocator = By.id("add-to-cart-button");
     By priceElement= (By.xpath("//div[@class=\"sc-badge-price-to-pay\"]"));
 
-    String priceString = priceElement.getText().replaceAll("[^0-9]", "");
+    String priceString = find(priceElement).getText().replaceAll("[^0-9]", "");
     int price = Integer.parseInt(priceString);
     int quantity = 2;
     int totalPrice = price * quantity;
     By totalPriceElement = (By.xpath("//span[@id=\"sc-subtotal-amount-buybox\"]"));
-    String totalPriceString = totalPriceElement.getText().replaceAll("[^0-9]", ""); // Sadece sayıları al
+    String totalPriceString = find(totalPriceElement).getText().replaceAll("[^0-9]", ""); // Sadece sayıları al
     int expectedTotalPrice = Integer.parseInt(totalPriceString);
     public ProductDetailPage(WebDriver driver) {
         super(driver);
